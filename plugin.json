@@ -2,7 +2,7 @@
     "id": "nodebb-plugin-markdown",
     "name": "Markdown Parser",
     "description": "A Markdown parser for NodeBB",
-    "url": "https://github.com/julianlam/nodebb-plugin-markdown",
+    "url": "https://github.com/ariastel/nodebb-plugin-markdown",
     "library": "./index.js",
     "less": [
         "public/less/default.less"
