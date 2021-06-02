@@ -80,6 +80,7 @@ const Markdown = {
 			allowRTLO: false,
 			checkboxes: true,
 			multimdTables: true,
+			imgSize: true,
 		};
 
 		meta.settings.get('markdown', function (err, options) {
@@ -243,6 +244,10 @@ const Markdown = {
 			});
 		}
 
+		if (Markdown.config.imgSize) {
+			parser.use(require('markdown-it-imsize'));
+		}
+
 		parser.use((md) => {
 			md.core.ruler.before('linkify', 'autodir', (state) => {
 				state.tokens.forEach((token) => {
@@ -267,14 +272,16 @@ const Markdown = {
 		parser.renderer.rules.image = function (tokens, idx, options, env, self) {
 			const classIdx = tokens[idx].attrIndex('class');
 			const srcIdx = tokens[idx].attrIndex('src');
+			const heightIdx = tokens[idx].attrIndex('height');
 
 			// Validate the url
 			if (!Markdown.isUrlValid(tokens[idx].attrs[srcIdx][1])) { return ''; }
 
+			const imgClass = ['img-markdown', heightIdx < 0 ? 'img-responsive' : 'not-responsive'].join(' ');
 			if (classIdx < 0) {
-				tokens[idx].attrPush(['class', 'img-responsive img-markdown']);
+				tokens[idx].attrPush(['class', imgClass]);
 			} else {
-				tokens[idx].attrs[classIdx][1] += ' img-responsive img-markdown';
+				tokens[idx].attrs[classIdx][1] += ` ${imgClass}`;
 			}
 
 			return renderImage(tokens, idx, options, env, self);

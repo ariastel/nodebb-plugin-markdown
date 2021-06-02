@@ -31,6 +31,12 @@
 									Allow advanced table syntax
 								</label>
 							</div>
+							<div class="form-group">
+								<label for="imgSize">
+									<input type="checkbox" name="imgSize" id="imgSize" />
+									Allow to specify img size
+								</label>
+							</div>
 						</div>
 						<div class="col-lg-6">
 							<div class="form-group">
