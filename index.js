@@ -48,7 +48,7 @@ const Markdown = {
 		hookData.links.push({
 			rel: 'prefetch stylesheet',
 			type: '',
-			href: `${nconf.get('relative_path')}/plugins/nodebb-plugin-markdown/styles/${Markdown.config.highlightTheme || 'railscasts.css'}`,
+			href: `${nconf.get('relative_path')}/plugins/@ariastel/nodebb-plugin-markdown/styles/${Markdown.config.highlightTheme || 'railscasts.css'}`,
 		});
 
 		const prefetch = ['/assets/src/modules/highlight.js', `/assets/language/${meta.config.defaultLang || 'en-GB'}/markdown.json`];
