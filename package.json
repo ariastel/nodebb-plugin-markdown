@@ -1,6 +1,6 @@
 {
   "name": "@ariastel/nodebb-plugin-markdown",
-  "version": "1.0.0-alpha.3",
+  "version": "1.0.0",
   "description": "Fork of the Markdown parser for NodeBB",
   "main": "index.js",
   "repository": {
